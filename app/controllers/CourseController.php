@@ -1,29 +1,28 @@
 <?php
 
-class UserController extends \BaseController {
-
-    /**
-     * Login for the user
-     */
-    public function login() {
-        return View::make('users.login');
-    }
-
+class CourseController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /user
+	 * GET /course
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-        return View::make('users.login');
+		//
 	}
+
+    /**
+     * Search for courses by tags
+     */
+    public function search() {
+
+    }
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /user/create
+	 * GET /course/create
 	 *
 	 * @return Response
 	 */
@@ -34,27 +33,18 @@ class UserController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /user
+	 * POST /course
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$user = [
-            'username' => Input::get('username'),
-            'password' => Input::get('password')
-        ];
-
-        if (Auth::attempt($user)) {
-            return Redirect::route('home')->with('flash_notice', 'You are successfully logged in.');
-        }
-
-        return Redirect::route('login')->with('flash_notice', 'Incorrect username/password combination!')->withInput();
+		//
 	}
 
 	/**
 	 * Display the specified resource.
-	 * GET /user/{id}
+	 * GET /course/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -66,7 +56,7 @@ class UserController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /user/{id}/edit
+	 * GET /course/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -78,7 +68,7 @@ class UserController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /user/{id}
+	 * PUT /course/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -90,14 +80,14 @@ class UserController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /user/{id}
+	 * DELETE /course/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		Auth::logout();
+		//
 	}
 
 }
