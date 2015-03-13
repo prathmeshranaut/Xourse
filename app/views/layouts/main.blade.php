@@ -6,16 +6,55 @@
     <link rel="import" href="../bower_components/core-elements/core-elements.html">
     <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
     <link rel="import" href="../bower_components/font-roboto/roboto.html">
-
-    
     
     <style>
         
+        .topbar {
+    
+            display:block;
+        background-color: #3BBFE8;
+    
+    }
+        
+        .top {
+            display: block;
+        
+           padding:6px 0px 0px 0px;
+            background-color: #3BBFE8;
+        }
+        
         html {
             font-family: roboto;
+            padding:0;
+            margin:0;
+        }
+        
+        .hover {
+            
+            float:left;
+        
+            margin:0;
+            padding:0;
+            
+        }
+        
+        .hover:hover {
+        
+            background-color:2BaFd8;
+        
+        }
+        
+        .left {
+            float:left;
+        }
+        
+        .right{
+            float:right;
         }
         
         body {
+            padding:0;
+            margin:0;
             text-align: center;
         	// background-color: #121212;
           //  background:url("../assets/images/bg.png");

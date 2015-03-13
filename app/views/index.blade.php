@@ -1,27 +1,34 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="wrapper">
     @if(Auth::user())
-        {{ Auth::user()->username }}
+        <!-- {{ Auth::user()->username }} -->
         <!-- Logged in users -->
-        <paper-tabs class="top">
-            <paper-button class="top"><a href="{{URL::to('/')}}">Home</a></paper-button>
-            <paper-button class="top"><a href="{{URL::to('user', ['username' => Auth::user()->username ])}}">{{ Auth::user()->username }}</a></paper-button class="top">
-            <paper-button class="top"><a href="{{URL::to('course')}}">Courses</a></paper-tab>
-            <paper-button class="top">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
+       <div class="topbar"> <paper-tabs class="top">
+            <div class="hover left"><paper-button class="left tab"><a href="{{URL::to('/')}}">Home</a></paper-button></div>
+            <div class="hover left"><paper-button class="left tab"><a href="{{URL::to('user', ['username' => Auth::user()->username ])}}">{{ Auth::user()->username }}</a></paper-button class="top"></div>
+            <div class="hover left"><paper-button class="left tab"><a href="{{URL::to('course')}}">Courses</a></paper-button></div>
+            <div class="right"><paper-button class="right tab">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
                     {{ Form::text('search', '', ['placeholder' => 'Search']) }}
                 {{ Form::close() }}
-            </paper-button class="top">
-            <paper-button class="top"><a href="{{ URL::to('logout') }}">Logout</a></paper-button>
+            </paper-button></div>
+            <div class="hover right"><paper-button class="right tab"><a href="{{ URL::to('logout') }}">Logout</a></paper-button></div>
         </paper-tabs>
+        </div>
     @else
         <!-- Non logged in users -->
-        <paper-tabs class="top">
-            <paper-button class="tab"><a href="{{URL::to('login')}}">Login</a></paper-button>
-
+        <div class="right"><paper-button class="right tab">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
+                    {{ Form::text('search', '', ['placeholder' => 'Search']) }}
+                {{ Form::close() }}
+            </paper-button></div>
+        <paper-tabs class="topbar">
+            <div class="hover right"><paper-button class="right tab"><a href="{{URL::to('login')}}">Login</a></paper-button></div>
+            <div class="hover right"><paper-button class="right tab"><a href="{{URL::to('signup')}}">Sign Up</a></paper-button></div>
         </paper-tabs>
     @endif
+
+    <div class="wrapper">
+    
     <h1>Appy</h1>
     @if(Session::has('flash_notice'))
         <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
