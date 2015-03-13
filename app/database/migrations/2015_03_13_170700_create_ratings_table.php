@@ -16,6 +16,7 @@ class CreateRatingsTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('course_id');
+            $table->integer('user_id');
 			$table->integer('stars')->default(0);
 			$table->text('review');
 			$table->timestamps();
