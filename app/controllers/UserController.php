@@ -75,7 +75,14 @@ class UserController extends \BaseController
      */
     public function show($id)
     {
-        //
+        $user = User::whereUsername($id)->first();
+        $courses = $user->courses;
+        $ratings = $user->ratings;
+
+        return View::make('users.show')
+            ->withUser($user)
+            ->withCourses($courses)
+            ->withRatings($ratings);
     }
 
     /**
