@@ -52,7 +52,14 @@ class CourseController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        $course = [];
+        try {
+            $course = Course::with('videos')->whereId($id)->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            $course = null;
+        }
+        dd($course->toArray());
+		return View::make('courses.show')->withCourse($course);
 	}
 
 	/**

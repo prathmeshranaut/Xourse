@@ -1,10 +1,7 @@
-@extends('layouts/main')
+@extends('layouts.main')
 
 @section('content')
-    <h1>Courses</h1>
-
-
-    @foreach($courses as $course)
+    @if($course)
         <article>
             <h1><a href="{{ URL::to('course/'. $course->id) }}">{{ $course->name }}</a></h1>
             <p>{{ $course->description }}</p>
@@ -13,6 +10,9 @@
             <p>Downvotes: {{ $course->downvotes }}</p>
             <p>Total Length: {{ $course->total_length }} seconds TODO: Convert to minutes and hours</p>
             <p>Difficulty: {{ $course->difficulty }}</p>
+            <p>Source Url: <a href="{{ $course->source_url }}">{{ $course->source }}</a></p>
         </article>
-    @endforeach
+    @else
+        <p>It was just a mirage. Nothing exists here!</p>
+    @endif
 @stop

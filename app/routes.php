@@ -14,6 +14,8 @@
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('login', ['as' => 'login', 'uses' => 'UserController@login']);
+Route::get('signup', ['as' => 'signup', 'uses' => 'UserController@create']);
+Route::post('signup', ['as' => 'signup-create', 'uses' => 'UserController@signup']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'UserController@destroy']);
 Route::post('search', ['as' => 'search', 'uses' => 'CourseController@search']);
 
