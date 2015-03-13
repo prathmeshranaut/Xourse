@@ -2,6 +2,9 @@
 
 @section('content')
     <h1>Login</h1>
+    @if(Session::has('flash_notice'))
+        <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
+    @endif
 
     {{ Form::open(['url' => 'user', 'method' => 'post']) }}
     <p>

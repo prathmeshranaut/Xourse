@@ -14,6 +14,6 @@
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('login', ['as' => 'login', 'uses' => 'UserController@login']);
-Route::get('logout', ['as' => 'logout', 'users' => 'UserController@logout']);
+Route::get('logout', ['as' => 'logout', 'users' => 'UserController@destroy']);
 
 Route::resource('user', 'UserController');

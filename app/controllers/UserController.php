@@ -46,11 +46,10 @@ class UserController extends \BaseController {
         ];
 
         if (Auth::attempt($user)) {
-            return Redirect::route('home')
-                ->with('flash_notice', 'You are successfully logged in.');
+            return Redirect::route('home')->with('flash_notice', 'You are successfully logged in.');
         }
 
-        return Redirect::route('login')->withInputs();
+        return Redirect::route('login')->with('flash_notice', 'Incorrect username/password combination!')->withInput();
 	}
 
 	/**
@@ -98,7 +97,7 @@ class UserController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Auth::destroy();
 	}
 
 }
