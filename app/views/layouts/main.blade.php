@@ -11,29 +11,50 @@
     
     <style>
         
+        html {
+            font-family: roboto;
+        }
+        
         body {
             text-align: center;
         	// background-color: #121212;
           //  background:url("../assets/images/bg.png");
-           background:#DCDEE3;
+           background:#ccd;
             background-size: cover;
             background-position: center;
         }
         .wrapper {
             text-align: center;
-            font-family: roboto;
+            
            // color: linear-gradient(#000,#121212);
-            padding-top: 18vh;
+            padding-top: 10vh;
         }
         
         h1 {
-            margin-bottom: 20vh;
-            font-size: 15vw;
+            margin-bottom: 16vh;
+            font-size: 12vw;
+            color:#eaeaea;
+        }
+        
+        #greet{
+            
+                font-size:2vw;        
+                color:#7a7a7a;
+        }
+        
+        a {
+            text-decoration:none;
+            color:#DCDEE3;
+            
         }
         
         .login {
-            background: linear-gradient(#bababa 0%,#fff 50%,#bababa 100%);
-        
+            background: linear-gradient(#5c9bEb 0%,#5D9CEC 100%);
+            font-weight: bold;
+            font-size:3vw;
+            color:#DCDEE3;
+            height:12vh;
+            margin-top:3vh;
         }
         
     </style>

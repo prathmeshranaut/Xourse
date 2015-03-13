@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'appy',
 			'username'  => 'root',
-			'password'  => 'aayush',
+			'password'  => 'alpine',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
