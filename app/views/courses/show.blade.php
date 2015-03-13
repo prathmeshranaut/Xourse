@@ -12,6 +12,10 @@
             <p>Difficulty: {{ $course->difficulty }}</p>
             <p>Source Url: <a href="{{ $course->source_url }}">{{ $course->source }}</a></p>
         </article>
+
+        <h2>Videos</h2>
+
+        
     @else
         <p>It was just a mirage. Nothing exists here!</p>
     @endif
