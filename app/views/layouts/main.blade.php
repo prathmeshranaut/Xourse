@@ -6,21 +6,23 @@
     <link rel="import" href="../bower_components/core-elements/core-elements.html">
     <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
     <link rel="import" href="../bower_components/font-roboto/roboto.html">
+
+    
     
     <style>
         
         body {
             text-align: center;
-        	 background-color: #121212;
+        	// background-color: #121212;
           //  background:url("../assets/images/bg.png");
-           background: linear-gradient(#000,#fff);
+           background:#DCDEE3;
             background-size: cover;
             background-position: center;
         }
         .wrapper {
             text-align: center;
             font-family: roboto;
-           // color: linear-gradient(#000,#fff);
+           // color: linear-gradient(#000,#121212);
             padding-top: 18vh;
         }
         
@@ -28,11 +30,16 @@
             margin-bottom: 20vh;
             font-size: 15vw;
         }
+        
+        .login {
+            background: linear-gradient(#bababa 0%,#fff 50%,#bababa 100%);
+        
+        }
+        
     </style>
     
     </head>
 <body>
-    <paper-button>sdbsf</paper-button>
     
     @yield('content')
 </body>

@@ -22,8 +22,8 @@
         </ul>
     @else
         <!-- Non logged in users -->
-        <p>Login to view awesome courses! For viewing all the courses <a href="{{ URL::to('login') }}">login.</a></p>
+        <p>Login to view awesome courses! For viewing all the courses <br><paper-button raised="true" class="login"href="{{ URL::to('login') }}">login</paper-button></p>
     @endif
-    
-    
+
+
 @stop
