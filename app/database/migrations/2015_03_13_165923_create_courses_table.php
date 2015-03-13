@@ -23,6 +23,8 @@ class CreateCoursesTable extends Migration {
 			$table->integer('is_paid')->default(0);
 			$table->integer('total_length')->default(0);
 			$table->integer('difficulty')->default(1);
+            $table->text('source');
+            $table->text('source_url');
 			$table->timestamps();
 		});
 	}

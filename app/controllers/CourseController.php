@@ -17,7 +17,7 @@ class CourseController extends \BaseController {
      * Search for courses by tags
      */
     public function search() {
-
+        echo "You searched for " . Input::get('search');
     }
 
 	/**

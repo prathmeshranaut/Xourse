@@ -11,11 +11,16 @@
         <!-- Logged in users -->
         <ul>
             <li><a href="{{URL::to('/')}}">Home</a></li>
-            <li><a href="{{URL::to('/')}}">Courses</a></li>
-            <li>{{ Form::open(['url' => 'search']) }} {{ Form::text('search', 'Search') }}{{ Form::close() }}</li>
+            <li><a href="{{URL::to('course')}}">Courses</a></li>
+            <li>{{ Form::open(['url' => 'search', 'method' => 'post']) }}
+                    {{ Form::text('search', '', ['placeholder' => 'Search']) }}
+                {{ Form::close() }}
+            </li>
+            <li><a href="{{ URL::to('logout') }}">Logout</a></li>
         </ul>
     @else
         <!-- Non logged in users -->
+        <p>Login to view awesome courses! For viewing all the courses <a href="{{ URL::to('login') }}">login.</a></p>
     @endif
 
 
