@@ -11,11 +11,24 @@
         
         .topbar {
     
+            font-size:1.1em;
             display:block;
         background-color: #3BBFE8;
+            padding:0px 30px 0px 30px;
     
     }
         
+      .gap{
+      
+            width:70%;
+          
+      }
+            
+        .gapa{
+        
+            width:70%;
+        }
+                
         .top {
             display: block;
         
@@ -66,7 +79,7 @@
             text-align: center;
             
            // color: linear-gradient(#000,#121212);
-            padding-top: 10vh;
+            padding-top: 4vh;
         }
         
         h1 {
@@ -94,6 +107,7 @@
             color:#DCDEE3;
             height:12vh;
             margin-top:3vh;
+            
         }
         
     </style>

@@ -4,10 +4,12 @@
     @if(Auth::user())
         <!-- {{ Auth::user()->username }} -->
         <!-- Logged in users -->
-       <div class="topbar"> <paper-tabs class="top">
+       <div class="topbar"> 
+        <paper-tabs class="top">
             <div class="hover left"><paper-button class="left tab"><a href="{{URL::to('/')}}">Home</a></paper-button></div>
             <div class="hover left"><paper-button class="left tab"><a href="{{URL::to('user', ['username' => Auth::user()->username ])}}">{{ Auth::user()->username }}</a></paper-button class="top"></div>
             <div class="hover left"><paper-button class="left tab"><a href="{{URL::to('course')}}">Courses</a></paper-button></div>
+            <div class="gap"></div>
             <div class="right"><paper-button class="right tab">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
                     {{ Form::text('search', '', ['placeholder' => 'Search']) }}
                 {{ Form::close() }}
@@ -17,6 +19,8 @@
         </div>
     @else
         <!-- Non logged in users -->
+        <div class="topbar">
+        <div class="gapa"></div>
         <div class="right"><paper-button class="right tab">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
                     {{ Form::text('search', '', ['placeholder' => 'Search']) }}
                 {{ Form::close() }}
@@ -25,6 +29,7 @@
             <div class="hover right"><paper-button class="right tab"><a href="{{URL::to('login')}}">Login</a></paper-button></div>
             <div class="hover right"><paper-button class="right tab"><a href="{{URL::to('signup')}}">Sign Up</a></paper-button></div>
         </paper-tabs>
+        </div>
     @endif
 
     <div class="wrapper">
