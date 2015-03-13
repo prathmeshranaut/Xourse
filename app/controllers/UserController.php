@@ -2,6 +2,14 @@
 
 class UserController extends \BaseController {
 
+    /**
+     * Login for the user
+     */
+    public function login() {
+        return View::make('users.login');
+    }
+
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /user
@@ -10,7 +18,7 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        return View::make('users.login');
 	}
 
 	/**
@@ -32,7 +40,17 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$user = [
+            'username' => Input::get('username'),
+            'password' => Input::get('password')
+        ];
+
+        if (Auth::attempt($user)) {
+            return Redirect::route('home')
+                ->with('flash_notice', 'You are successfully logged in.');
+        }
+
+        return Redirect::route('login')->withInputs();
 	}
 
 	/**

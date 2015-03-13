@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-Route::get('login', 'UsersController@login');
-Route::get('logout', 'UsersController@logout');
+Route::get('login', ['as' => 'login', 'uses' => 'UserController@login']);
+Route::get('logout', ['as' => 'logout', 'users' => 'UserController@logout']);
 
-Route::get('user', 'UsersController@index');
+Route::resource('user', 'UserController');
