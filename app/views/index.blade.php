@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    <div class="wrapper">
     <h1>Appy</h1>
     @if(Session::has('flash_notice'))
         <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
@@ -23,6 +24,6 @@
         <!-- Non logged in users -->
         <p>Login to view awesome courses! For viewing all the courses <a href="{{ URL::to('login') }}">login.</a></p>
     @endif
-
-
+    
+    
 @stop
