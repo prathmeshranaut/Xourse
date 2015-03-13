@@ -21,3 +21,4 @@ Route::post('search', ['as' => 'search', 'uses' => 'CourseController@search']);
 
 Route::resource('user', 'UserController');
 Route::resource('course', 'CourseController');
+Route::resource('video', 'VideoController');

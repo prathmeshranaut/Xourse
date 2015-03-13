@@ -15,7 +15,11 @@
 
         <h2>Videos</h2>
 
-        
+        @foreach($videos as $video)
+            <p><a href="{{ URL::to('video/'. $video->id) }}">{{ $video->title }}</a></p>
+            <p>{{ $video->description }}</p>
+            <p>{{ $video->length }}</p>
+        @endforeach
     @else
         <p>It was just a mirage. Nothing exists here!</p>
     @endif

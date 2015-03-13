@@ -2,6 +2,11 @@
 
 class DatabaseSeeder extends Seeder {
 
+    private $tables = [
+        'users',
+        'ratings'
+    ];
+
 	/**
 	 * Run the database seeds.
 	 *
@@ -9,10 +14,24 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+        $this->cleanDatabase();
+
 		Eloquent::unguard();
-		Users::truncate();
 
 		$this->call('UsersTableSeeder');
+
 	}
+
+    public function cleanDatabase()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+        foreach ($this->tables as $tableName)
+        {
+            DB::table($tableName)->truncate();
+        }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+    }
 
 }

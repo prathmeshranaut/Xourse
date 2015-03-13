@@ -6,4 +6,8 @@ class Course extends \Eloquent {
     public function videos() {
         return $this->hasMany('Video');
     }
+
+    public function ratings() {
+        return $this->hasMany('Rating');
+    }
 }
