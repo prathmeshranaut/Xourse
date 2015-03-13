@@ -88,13 +88,12 @@ class UserController extends \BaseController {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /user/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+    /**
+     * Remove the specified resource from storage.
+     * DELETE /user
+     *
+     * @return Response
+     */
 	public function destroy()
 	{
 		Auth::logout();

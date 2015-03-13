@@ -11,6 +11,7 @@
         <!-- Logged in users -->
         <ul>
             <li><a href="{{URL::to('/')}}">Home</a></li>
+            <li><a href="{{URL::to('user', ['username' => Auth::user()->username ])}}">{{ Auth::user()->username }}</a></li>
             <li><a href="{{URL::to('course')}}">Courses</a></li>
             <li>{{ Form::open(['url' => 'search', 'method' => 'post']) }}
                     {{ Form::text('search', '', ['placeholder' => 'Search']) }}
