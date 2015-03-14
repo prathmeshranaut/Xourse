@@ -6,7 +6,7 @@
 
     <h2>Courses</h2>
     @foreach($courses as $course)
-        <p>{{ $course->name }}</p>
+        <p><a href="{{ URL::to('course/'. $course->id) }}">{{ $course->name }}</a></p>
         <p>{{ $course->description }}</p>
         <p>{{ $course->views }}</p>
     @endforeach

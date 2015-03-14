@@ -77,7 +77,7 @@ class UserController extends \BaseController
     {
         $user = User::whereUsername($id)->first();
         $courses = $user->courses;
-        $ratings = $user->ratings;
+        $ratings = $user->ratings->reverse();
 
         return View::make('users.show')
             ->withUser($user)
@@ -120,7 +120,7 @@ class UserController extends \BaseController
     public function destroy()
     {
         Auth::logout();
-        Redirect::route('home');
+        return Redirect::route('home');
     }
 
 }

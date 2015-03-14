@@ -19,6 +19,7 @@ Route::post('signup', ['as' => 'signup-create', 'uses' => 'UserController@signup
 Route::get('logout', ['as' => 'logout', 'uses' => 'UserController@destroy']);
 Route::post('search', ['as' => 'search', 'uses' => 'CourseController@search']);
 Route::get('course/join/{course_id}', ['as' => 'join-course', 'uses' => 'CourseController@join']);
+Route::post('course/{id}/rate', ['as' => 'rate-course', 'uses' => 'CourseController@rate']);
 
 Route::resource('user', 'UserController');
 Route::resource('course', 'CourseController');

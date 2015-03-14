@@ -55,18 +55,21 @@ class CourseController extends \BaseController {
         $course = [];
         $videos = [];
         $reviews = [];
+        $hasRated = 0;
+
         try {
             $course = Course::whereId($id)->firstOrFail();
             $videos = $course->videos;
             $reviews = $course->ratings;
+            $hasRated = Rating::whereUserId(Auth::user()->id)->whereCourseId($course->id)->count();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
 
         }
-
 		return View::make('courses.show')
             ->withCourse($course)
             ->withVideos($videos)
-            ->withReviews($reviews);
+            ->withReviews($reviews)
+            ->withHasRated($hasRated);
 	}
 
 	/**
@@ -141,4 +144,14 @@ class CourseController extends \BaseController {
         return $courses;
     }
 
+    public function rate($id) {
+        Rating::create([
+            'course_id' => $id,
+            'user_id' => Auth::user()->id,
+            'stars' => Input::get('stars'),
+            'review' => Input::get('review'),
+        ]);
+
+        return Redirect::to('course/'. $id);
+    }
 }

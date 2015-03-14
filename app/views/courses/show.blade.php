@@ -27,6 +27,25 @@
             <p>{{$review->review}}</p>
             <p>{{ \Carbon\Carbon::createFromTimestamp(strtotime($review->created_at))->diffForHumans() }}</p>
         @endforeach
+
+        <!-- Rating form for users who haven't rated yet -->
+
+        @if($has_rated)
+            <p>You have already voted!</p>
+        @else
+            {{ Form::open(['url' => 'course/'.$course['id'].'/rate']) }}
+
+            <p>
+                {{ Form::text('stars', null, ['placeholder' => 'Rate(1-5)']) }}
+            </p>
+            <p>
+                {{ Form::textarea('review', null, ['placeholder' => 'Leave a review...']) }}
+            </p>
+            <p>
+                {{ Form::submit('Leave Review') }}
+            </p>
+            {{ Form::close() }}
+        @endif
     @else
         <p>It was just a mirage. Nothing exists here!</p>
     @endif
