@@ -18,7 +18,9 @@ class CourseController extends \BaseController {
      * Search for courses by tags
      */
     public function search() {
-        echo "You searched for " . Input::get('search');
+        $courses = Course::where('name', 'LIKE', "%" .Input::get('search'). "%")->orWhere('description', 'LIKE', '%'. Input::get('search'). '%')->get();
+
+        return View::make('courses.search')->withCourses($courses);
     }
 
 	/**
