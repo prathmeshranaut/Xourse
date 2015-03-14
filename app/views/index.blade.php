@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Appy</a>
+                <a class="navbar-brand" href="{{ URL::to('/') }}">Xourse</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-ex">
@@ -73,14 +73,4 @@
                 </div>
             </div>
         @endforeach
-    @if(Auth::user())
-        {{ Auth::user()->username }}
-        <!-- Logged in users -->
-        
-    @else
-        <!-- Non logged in users -->
-        <p id="greet">To view all our courses,</p>  <br> <a class="btn-primary" href="{{ URL::to('login') }}">LOGIN</a>
-    @endif
-
-
 @stop

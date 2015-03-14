@@ -76,13 +76,45 @@ class UserController extends \BaseController
     public function show($id)
     {
         $user = User::whereUsername($id)->first();
-        $courses = $user->courses;
+        $user_id = 0;
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
+        $courses = $this->parseCoursesForUser($user->courses, $user_id);
+
         $ratings = $user->ratings->reverse();
 
         return View::make('users.show')
             ->withUser($user)
             ->withCourses($courses)
             ->withRatings($ratings);
+    }
+
+    private function parseCoursesForUser($courses, $userId)
+    {
+        $userCourses = CoursesUser::whereUserId($userId)->get();
+
+        $uCourses = [];
+
+        foreach($userCourses as $course) {
+            $uCourses[] = Course::whereId($course->course_id)->first();
+        }
+
+        $courses = $courses->toArray();
+
+        foreach($courses as &$course) {
+            $course['is_joined'] = false;
+            foreach($uCourses as $userCourse) {
+                if($course['id'] == $userCourse->id) {
+                    $course['is_joined'] = true;
+                    break;
+                } else {
+                    $course['is_joined'] = false;
+                }
+            }
+        }
+
+        return $courses;
     }
 
     /**

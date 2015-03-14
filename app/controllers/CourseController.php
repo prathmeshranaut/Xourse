@@ -10,7 +10,12 @@ class CourseController extends \BaseController {
 	 */
 	public function index()
 	{
-        $courses = $this->parseCoursesForUser(Course::all(), Auth::user()->id);
+        $user_id = 0;
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
+        $courses = $this->parseCoursesForUser(Course::all(), $user_id);
+
 		return View::make('courses.index')->withCourses($courses);
 	}
 
@@ -63,7 +68,11 @@ class CourseController extends \BaseController {
             $course = Course::whereId($id)->firstOrFail();
             $videos = $course->videos;
             $reviews = $course->ratings;
-            $hasRated = Rating::whereUserId(Auth::user()->id)->whereCourseId($course->id)->count();
+            $user_id = 0;
+            if(Auth::user()) {
+                $user_id = Auth::user()->id;
+            }
+            $hasRated = Rating::whereUserId($user_id)->whereCourseId($course->id)->count();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
 
         }

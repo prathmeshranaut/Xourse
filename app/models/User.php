@@ -26,7 +26,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     protected $guarded = array();
 
     public function courses() {
-        return $this->belongsToMany('Course', 'course_user', 'course_id', 'user_id');
+        return $this->belongsToMany('Course', 'course_user', 'user_id', 'course_id');
     }
 
     public function ratings() {
