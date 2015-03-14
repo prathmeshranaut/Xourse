@@ -1,12 +1,15 @@
 <html>
 <head>
     <title>@yield('title', 'Appy')</title>
+<!--
    	<script type="text/javascript" src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="../bower_components/polymer/polymer.html">
     <link rel="import" href="../bower_components/core-elements/core-elements.html">
     <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
     <link rel="import" href="../bower_components/font-roboto/roboto.html">
+-->
     
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <style>
         
         .topbar {
@@ -33,7 +36,7 @@
             display: block;
         
            padding:6px 0px 0px 0px;
-            background-color: #3BBFE8;
+           // background-color: #3BBFE8;
         }
         
         html {
@@ -42,12 +45,19 @@
             margin:0;
         }
         
+        .navbar {
+            padding-top:1%;
+            padding-right:5%;
+            padding-left:5%;
+            //background-color:#3BBFE8;
+        }
+        
         .hover {
             
             float:left;
-        
+           // height:6%;
             margin:0;
-            padding:0;
+            padding:0px 10px 0px 10px;
             
         }
         
@@ -116,5 +126,9 @@
 <body>
     
     @yield('content')
+    
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
