@@ -17,7 +17,11 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-        $courses = $this->parseCoursesForUser(Course::all(), Auth::user()->id);
+        $user_id = 0;
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
+        $courses = $this->parseCoursesForUser(Course::all(), $user_id);
 		return View::make('index')->withCourses($courses);
 	}
 
