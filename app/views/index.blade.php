@@ -50,15 +50,29 @@
 @section('content')
     <div class="jumbotron">
         <div class="container">
-            <h1>Appy</h1>
+            <div class="appy-form">
+                {{ Form::open(['url' => 'search', 'method' => 'post']) }}
+                    {{ Form::text('search', null, ['class' => 'appy-form-input', 'placeholder' => 'Search for keywords like python, laravel, css...']) }}
+                    <div class="appy-form-submit"><input type="submit" value="Search" /></div>
+                {{ Form::close() }}
+            </div>
+            <h1>Search courses to find the perfect match</h1>
         </div>
     </div>
     <div class="container">
 
-    @if(Session::has('flash_notice'))
-        <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
-    @endif
+        @if(Session::has('flash_notice'))
+            <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
+        @endif
 
+        <div class="row">
+        @foreach($courses as $course)
+            <div class="row">
+                <div class="col-md-12">
+                    @include('template.course', ['course' => $course])
+                </div>
+            </div>
+        @endforeach
     @if(Auth::user())
         {{ Auth::user()->username }}
         <!-- Logged in users -->

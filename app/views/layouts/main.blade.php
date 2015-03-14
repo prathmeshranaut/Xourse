@@ -2,7 +2,7 @@
 <head>
     <title>@yield('title', 'Appy')</title>
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="s"
+    <link rel="stylesheet" href="../assets/style.css">
     </head>
 <body>
     @yield('navigation')

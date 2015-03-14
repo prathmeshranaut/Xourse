@@ -1,0 +1,77 @@
+.clearfix {
+    clear:both;
+}
+.navbar {
+    margin-bottom:0
+}
+
+.row {
+    margin:20px 0 0;
+}
+
+.jumbotron {
+    background:url('../assets/images/blur.png');
+    background-size:cover;
+    height:450px;
+    padding-top: 200px;
+}
+.jumbotron h1 {
+    color:#f3f3f3;
+    font-size:36px;
+    text-align: center;
+    text-shadow:0 1px 0 #333;
+}
+.jumbotron .appy-form-input {
+    width:100%;
+    padding:10px 20px;
+    border:1px solid #ccc;
+    font-size:24px;
+    color:#555;
+    box-shadow: 0 2px 1px #999;
+}
+.jumbotron .appy-form-input:focus {
+    outline:none;
+}
+.jumbotron .appy-form {
+    position:relative;
+}
+.jumbotron .appy-form input[type=submit] {
+    right:0;
+    position:absolute;
+    top:0;
+    font-size:24px;
+    padding:10px 15px;
+    border:1px solid #00b3ee;
+    background:#00bbd3;
+    color:#f9f9f9;
+}
+article {
+    background:#f6f6f6;
+    border:1px solid #cbcbcb;
+    padding:5px 20px;
+    margin:0 10px;
+    display:block;
+    border-radius:2px;
+    box-shadow:0 2px 1px #ccc;
+}
+article h1 {
+    font-size:24px;
+    margin:10px 0;
+}
+article h1 a {
+    color:#333333;
+}
+article h1 a:hover {
+    text-decoration:none;
+}
+
+.btn-view-course {
+    background: #21d36d;
+    border:1px solid #13b357;
+    box-shadow:0px 1px 0px 0 #0c8e43;
+}
+.btn-view-course:hover {
+    background: #1fc566;
+    border:1px solid #13b357;
+    box-shadow:0px 2px 0px #0c8e43;
+}
