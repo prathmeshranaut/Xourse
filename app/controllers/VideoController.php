@@ -46,6 +46,9 @@ class VideoController extends \BaseController {
 	{
         try {
             $video = Video::whereId($id)->firstOrFail();
+            $course = Course::whereId($video->course_id)->firstOrFail();
+            $course->views += 1;
+            $course->save();
         } catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             $video = null;
         }

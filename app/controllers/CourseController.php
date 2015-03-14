@@ -122,7 +122,6 @@ class CourseController extends \BaseController {
         $userCourses = CoursesUser::whereUserId($userId)->get();
 
         $uCourses = [];
-        $joined = [];
 
         foreach($userCourses as $course) {
             $uCourses[] = Course::whereId($course->course_id)->first();
@@ -131,6 +130,7 @@ class CourseController extends \BaseController {
         $courses = $courses->toArray();
 
         foreach($courses as &$course) {
+            $course['is_joined'] = false;
             foreach($uCourses as $userCourse) {
                 if($course['id'] == $userCourse->id) {
                     $course['is_joined'] = true;
