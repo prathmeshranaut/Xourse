@@ -45,20 +45,45 @@
             margin:0;
         }
         
+/*
         .navbar {
             padding-top:1%;
             padding-right:5%;
             padding-left:5%;
             //background-color:#3BBFE8;
         }
+*/
         
         .hover {
             
             float:left;
            // height:6%;
             margin:0;
-            padding:0px 10px 0px 10px;
+            padding:0 10px 15px 10px;
+            font-size:1.1em;
             
+        }
+        
+        .navbar-brand{
+        
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+        
+        .search{
+            
+            padding:0;
+            margin:0;
+            padding-top:1.35%;
+            margin-left: 10px;
+            padding-left: 20px;
+           
+        }
+        
+        .container {
+        
+          //  display:list-item;
+        
         }
         
         .hover:hover {
@@ -110,14 +135,15 @@
             
         }
         
-        .login {
+        .btn-primary {
             background: linear-gradient(#5c9bEb 0%,#5D9CEC 100%);
             font-weight: bold;
             font-size:3vw;
             color:#DCDEE3;
-            height:12vh;
-            margin-top:3vh;
             
+            margin-top:3vh;
+            padding: 6px 6px 6px 6px;
+            border-radius: 3px;
         }
         
     </style>
