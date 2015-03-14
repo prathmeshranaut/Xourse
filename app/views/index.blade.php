@@ -10,35 +10,42 @@
             <a href="" class="navbar-brand"> APPY </a>           
         </div>
             <ul>
-            <div class="hover left"><li class="left tab"><a href="{{URL::to('/')}}">Home</a></li></div>
-            <div class="hover left"><li class="left tab"><a href="{{URL::to('user', ['username' => Auth::user()->username ])}}">{{ Auth::user()->username }}</a></li class="top"></div>
-            <div class="hover left"><li class="left tab"><a href="{{URL::to('course')}}">Courses</a></li></div>
-            <div class="gap"></div>
-            <div class="search"><li class="right tab">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
+            <li class="right hover">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
                     {{ Form::text('search', '', ['placeholder' => 'Search']) }}
-                {{ Form::close() }}
-            </li></div>
-            <div class="hover right"><li class="right tab"><a href="{{ URL::to('logout') }}">Logout</a></li></div>
+                    {{ Form::close() }}
+                </li>
+                <li class="right hover"><a href="{{ URL::to('logout') }}">Logout</a></li>
+               
+                <li class="right hover"><a href="{{URL::to('user', ['username' => Auth::user()->username ])}}">{{ Auth::user()->username }}</a></li class="top">
+                <li class="right hover"><a href="{{URL::to('course')}}">Courses</a></li>
+                 <li class="right hover"><a href="{{URL::to('/')}}">Home</a></li>
+                
             </ul>
-        </div>
+        
 
+        </div>
         </div>
     @else
         <!-- Non logged in users -->
-        <div class="navbar navbar-inverse">
-       <div class="container">
-       <div class="navbar-header">
+       <div class="navbar navbar-inverse"> 
+        <div class="container">
+        <div class="navbar-header">
             <a href="" class="navbar-brand"> APPY </a>           
         </div>
-       <ul>
-        <div class="search"><li class="right tab">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
+            <ul>
+            <li class="navbar-text navbar-right ">{{ Form::open(['url' => 'search', 'method' => 'post']) }}
                     {{ Form::text('search', '', ['placeholder' => 'Search']) }}
-                {{ Form::close() }}
-            </li></div>
+                    {{ Form::close() }}
+                </li>
+                <li class="navbar-text navbar-right "><a href="{{ URL::to('login') }}">Login</a></li>
+               
+                <li class="navbar-text navbar-right"><a href="{{ URL::to('signup') }}">Signup</a></li>
+               
+                
+                
+            </ul>
         
-            <div class="hover right"><li class="right tab"><a href="{{URL::to('login')}}">Login</a></li></div>
-            <div class="hover right"><li class="right tab"><a href="{{URL::to('signup')}}">Sign Up</a></li></div>
-        </ul>
+
         </div>
         </div>
     @endif

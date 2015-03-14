@@ -59,9 +59,15 @@
             float:left;
            // height:6%;
             margin:0;
-            padding:0 10px 15px 10px;
+            padding:15px 10px 0px 10px;
             font-size:1.1em;
             
+        }
+        
+        .nega{
+            
+            margin-top: -10px;
+        
         }
         
         .navbar-brand{
