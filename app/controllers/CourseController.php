@@ -10,7 +10,7 @@ class CourseController extends \BaseController {
 	 */
 	public function index()
 	{
-        $courses = Course::all();
+        $courses = $this->parseCoursesForUser(Course::all(), Auth::user()->id);
 		return View::make('courses.index')->withCourses($courses);
 	}
 
@@ -104,5 +104,41 @@ class CourseController extends \BaseController {
 	{
 		//
 	}
+
+    public function join($id) {
+        $user_id = Auth::user()->id;
+        $course_id = $id;
+
+        CoursesUser::create(['user_id' => $user_id, 'course_id' => $course_id]);
+
+        return Redirect::to('course/'.$course_id);
+    }
+
+    private function parseCoursesForUser($courses, $userId)
+    {
+        $userCourses = CoursesUser::whereUserId($userId)->get();
+
+        $uCourses = [];
+        $joined = [];
+
+        foreach($userCourses as $course) {
+            $uCourses[] = Course::whereId($course->course_id)->first();
+        }
+
+        $courses = $courses->toArray();
+
+        foreach($courses as &$course) {
+            foreach($uCourses as $userCourse) {
+                if($course['id'] == $userCourse->id) {
+                    $course['is_joined'] = true;
+                    break;
+                } else {
+                    $course['is_joined'] = false;
+                }
+            }
+        }
+
+        return $courses;
+    }
 
 }

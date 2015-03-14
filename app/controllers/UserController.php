@@ -120,6 +120,7 @@ class UserController extends \BaseController
     public function destroy()
     {
         Auth::logout();
+        Redirect::route('home');
     }
 
 }

@@ -16,6 +16,6 @@
     @foreach($ratings as $rating)
         <p>Star: {{ $rating->stars }}</p>
         <p>{{ $rating->review }}</p>
-        <p>{{ \Carbon\Carbon::createFromTimestamp(strtotime($review->created_at))->diffForHumans() }}</p>
+        <p>{{ \Carbon\Carbon::createFromTimestamp(strtotime($rating->created_at))->diffForHumans() }}</p>
     @endforeach
 @stop

@@ -3,14 +3,14 @@
 @section('content')
     @if($course)
         <article>
-            <h1>{{ $course->name }}</h1>
-            <p>{{ $course->description }}</p>
-            <p>Views: {{ $course->views }}</p>
-            <p>Upvotes: {{ $course->upvotes }}</p>
-            <p>Downvotes: {{ $course->downvotes }}</p>
-            <p>Total Length: {{ $course->total_length }} seconds TODO: Convert to minutes and hours</p>
-            <p>Difficulty: {{ $course->difficulty }}</p>
-            <p>Source Url: <a href="{{ $course->source_url }}">{{ $course->source }}</a></p>
+            <h1>{{ $course['name'] }}</h1>
+            <p>{{ $course['description'] }}</p>
+            <p>Views: {{ $course['views'] }}</p>
+            <p>Upvotes: {{ $course['upvotes'] }}</p>
+            <p>Downvotes: {{ $course['downvotes'] }}</p>
+            <p>Total Length: {{ $course['total_length'] }} seconds TODO: Convert to minutes and hours</p>
+            <p>Difficulty: {{ $course['difficulty'] }}</p>
+            <p>Source Url: <a href="{{ $course['source_url'] }}">{{ $course['source'] }}</a></p>
         </article>
 
         <h2>Videos</h2>
