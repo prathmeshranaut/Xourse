@@ -88,7 +88,9 @@
             <h2>Ratings</h2>
             @if($has_rated)
                 <div class="row">
-                    <p class="bg-warning">You have already voted!</p>
+                    <div class="col-md-12">
+                        <p class="bg-warning">You have already voted!</p>
+                    </div>
                 </div>
             @else
                 {{ Form::open(['url' => 'course/'.$course['id'].'/rate']) }}
@@ -107,14 +109,18 @@
 
 
             @foreach($reviews as $review)
-                <article>
-                    <p class="description">{{ str_limit($review->review, $limit = 150, $end = '...') }}</p>
-                    <p>
-                        <span class="label label-warning">Star: {{ $review->stars }}</span>
-                        <span class="label label-default">{{ \Carbon\Carbon::createFromTimestamp(strtotime($review->created_at))->diffForHumans() }}</span>
-                    </p>
-                    <p class="clearfix"></p>
-                </article>
+                <div class="row">
+                    <div class="col-md-12">
+                        <article>
+                            <p class="description">{{ str_limit($review->review, $limit = 150, $end = '...') }}</p>
+                            <p>
+                                <span class="label label-warning">Star: {{ $review->stars }}</span>
+                                <span class="label label-default">{{ \Carbon\Carbon::createFromTimestamp(strtotime($review->created_at))->diffForHumans() }}</span>
+                            </p>
+                            <p class="clearfix"></p>
+                        </article>
+                    </div>
+                </div>
             @endforeach
 
         <!-- Rating form for users who haven't rated yet -->
