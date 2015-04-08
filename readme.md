@@ -8,4 +8,4 @@ This project uses [http://laravel.com](Laravel) for its backend.
 Screenshots
 ===========
 ###Homepage
-![alt text](https://github.com/aayushranaut/Xourse/blob/master/screenshots/Xourse%20-%20Home.png, "Homepage")
+![alt text](https://github.com/aayushranaut/Xourse/blob/master/screenshots/Xourse%20-%20Home.png "Homepage")
